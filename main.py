@@ -60,7 +60,7 @@ if __name__ == "__main__":
         if (response == "s"):
             tui.clear_console()
             start_game()
-        elif (response in ["n", " "] or response.isspace()):
+        elif (response in ["n", ""] or response.isspace()):
             break
         else:
             print("Reposta inválida. Fechando...")
