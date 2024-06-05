@@ -1,0 +1,42 @@
+
+  ╭───┰                                           
+  │       Tentativas: {GUESSES}
+  │       
+  │       {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │
+  │       {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │   |
+  │       {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │  /|
+  │       {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │  /|\
+  │       {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │  /|\
+  │    \  {WORD}
+  │
+,
+  ╭───┰                                           
+  │   o   Tentativas: {GUESSES}
+  │  /|\
+  │  / \  {WORD}
+  │
