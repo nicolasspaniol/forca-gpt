@@ -1,21 +1,23 @@
 """ Módulo que implementa a lógica principal do jogo """
 
 from enum import Enum
-from unicodedata import normalize
+import unicodedata
 from typing import Optional
+
+
+ALLOWED_SPECIAL_CHARS = [" ", "-"]
+
+
+def normalize(text: str) -> str:
+    text = text.upper()
+    text = unicodedata.normalize("NFD", text)
+    return text.encode("ascii", "ignore").decode("utf-8") 
 
 
 class GameState(Enum):
     WON = 0,
     LOST = 1,
     RUNNING = 2
-
-
-ALLOWED_SPECIAL_CHARS = [" ", "-"]
-
-
-def deaccent(text: str) -> str:
-    return normalize("NFD", text).encode("ascii", "ignore").decode("utf-8")    
 
 
 class Hangman:
@@ -25,14 +27,14 @@ class Hangman:
         self.max_tries = max_tries
         self.word = word.upper()
         # https://stackoverflow.com/a/44433664
-        self.normalized_word = deaccent(self.word)
+        self.normalized_word = normalize(word)
         self.guesses = []
 
 
     def guess(self, guess: str) -> None:
         assert len(guess) == 1 and guess.isalpha()
 
-        guess = deaccent(guess).upper()
+        guess = normalize(guess)
         self.guesses.append(guess)
 
 
@@ -59,7 +61,7 @@ class Hangman:
 
 
     def guessed(self, guess: str) -> bool:
-        return deaccent(guess).upper() in self.guesses
+        return normalize(guess) in self.guesses
 
 
     def wrong_guesses(self) -> list[str]:

@@ -26,7 +26,6 @@ def start_game():
         tui.clear_console()
         tui.render(game)
 
-        guess = ""
         while(True):
             guess = input(tui.colored(tui.Colors.BLUE, "\nQual o seu palpite? ")).strip()
 
@@ -60,7 +59,7 @@ if __name__ == "__main__":
         if (response == "s"):
             tui.clear_console()
             start_game()
-        elif (response in ["n", ""] or response.isspace()):
+        elif (response in ["n", ""]):
             break
         else:
             print("Reposta inválida. Fechando...")

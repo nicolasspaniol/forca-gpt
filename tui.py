@@ -48,8 +48,9 @@ def box(text: str):
 
 
 def render(game: Hangman):
-    art = ASCII_ART[len(game.wrong_guesses())]
-    wrong_guesses = ", ".join(game.wrong_guesses())
+    wrong_guesses = game.wrong_guesses()
+    art = ASCII_ART[len(wrong_guesses)]
+    wrong_guesses = ", ".join(wrong_guesses)
     word = " ".join([char if char != None else "_" for char in game.guessed_positions()])
 
     art = art.replace("{GUESSES}", colored(Colors.RED, wrong_guesses))
